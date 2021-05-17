@@ -1,4 +1,7 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
 
 const TodoForm = ({ addTodos, setAddTodos }) => {
   const [userInput, setUserInput] = React.useState("");
@@ -11,23 +14,21 @@ const TodoForm = ({ addTodos, setAddTodos }) => {
     event.preventDefault();
     setAddTodos([
       ...addTodos,
-      { text: userInput, completed: false, id: Math.random() * 1000 }
+      { text: userInput, completed: false, id: Math.random() * 1000 },
     ]);
     setUserInput("");
   };
   return (
     <form className="add-items">
-      <input
-        type="text"
-        placeholder="add your todo"
+      <TextField
+        label="add your todo"
         value={userInput}
         onChange={handleChange}
       />
 
-      <button className="btn" onClick={submitHandler}>
-        {" "}
-        +{" "}
-      </button>
+      <Button className="btn" onClick={submitHandler}>
+        <AddIcon />
+      </Button>
     </form>
   );
 };
