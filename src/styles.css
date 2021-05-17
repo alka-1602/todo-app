@@ -1,0 +1,51 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.main-div {
+  min-height: 100vh;
+  background-color: rgb(15, 14, 14);
+  display: flex;
+  justify-content: center;
+}
+
+.child-div {
+  background-color: white;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 50px;
+  width: 350px;
+}
+
+button {
+  background-color: rgb(228, 224, 17);
+}
+h1 {
+  color: red;
+}
+li {
+  list-style-type: none;
+}
+.each-item {
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 50px;
+  background: rgb(227, 218, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="checkbox"]:checked + label.strikethrough {
+  text-decoration: line-through;
+}
+
+.btn-delete {
+  border-radius: 20%;
+  font-size: 50%;
+  background-color: rgb(227, 218, 201);
+  border-width: 50%;
+}
