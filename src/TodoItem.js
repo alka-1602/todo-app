@@ -17,9 +17,13 @@ const TodoItem = ({ text, deleteTodo, todo, todoComplete }) => {
   return (
     <form>
       <li className="each-item">
-        <input type="checkbox" onClick={handleCheckbox} />
+        <input
+          type="checkbox"
+          onClick={handleCheckbox}
+          checked={todo.isComplete}
+        />
         <label
-          class="strikethrough"
+          className="strikethrough"
           style={{ textDecoration: todo.isComplete ? "line-through" : null }}
         >
           {text}{" "}
