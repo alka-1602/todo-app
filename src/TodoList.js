@@ -1,6 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-const TodoList = ({ addTodos, deleteTodo }) => {
+const TodoList = ({ addTodos, deleteTodo, todoComplete }) => {
   console.log("TodoList rendered");
 
   return (
@@ -12,6 +12,7 @@ const TodoList = ({ addTodos, deleteTodo }) => {
             text={todo.text}
             deleteTodo={deleteTodo}
             todo={todo}
+            todoComplete={todoComplete}
           />
         );
       })}

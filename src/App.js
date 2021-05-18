@@ -17,6 +17,20 @@ const App = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
+  function todoComplete(id) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            isComplete: !todo.isComplete,
+          };
+        }
+        return todo;
+      })
+    );
+  }
+
   React.useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
     if (todos) {
@@ -33,7 +47,11 @@ const App = () => {
         <div className="child-div">
           <h1> Todo App </h1>
           <TodoForm addTodos={todos} setAddTodos={setTodos} />
-          <TodoList addTodos={todos} deleteTodo={deleteItem} />
+          <TodoList
+            addTodos={todos}
+            deleteTodo={deleteItem}
+            todoComplete={todoComplete}
+          />
         </div>
       </div>
     </>
