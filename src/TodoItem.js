@@ -1,6 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import ListItem from "@material-ui/core/ListItem";
+import Checkbox from "@material-ui/core/Checkbox";
+import ListItemText from "@material-ui/core/ListItemText";
 
 const TodoItem = ({ text, deleteTodo, todo, todoComplete }) => {
   console.log("TodoItem rendered");
@@ -16,22 +19,23 @@ const TodoItem = ({ text, deleteTodo, todo, todoComplete }) => {
 
   return (
     <form>
-      <li className="each-item">
-        <input
-          type="checkbox"
+      <ListItem style={{backgroundColor:"lightcyan", borderRadius:30, marginBottom:15, marginTop:15}}>
+        <Checkbox
+          size="small"
           onClick={handleCheckbox}
+          color="primary"
+          inputProps={{ "aria-label": "primary checkbox" }}
           checked={todo.isComplete}
         />
-        <label
-          className="strikethrough"
+        <ListItemText
+          primary={todo.text}
           style={{ textDecoration: todo.isComplete ? "line-through" : null }}
-        >
-          {text}{" "}
-        </label>
-        <Button className="btn-delete" onClick={deleteHandler}>
+        />
+
+        <Button color="secondary" onClick={deleteHandler}>
           <DeleteOutlineIcon />
         </Button>
-      </li>
+      </ListItem>
     </form>
   );
 };

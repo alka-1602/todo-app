@@ -19,14 +19,15 @@ const TodoForm = ({ addTodos, setAddTodos }) => {
     setUserInput("");
   };
   return (
-    <form className="add-items">
-      <TextField
-        label="add your todo"
+    <form onSubmit={submitHandler}>
+      <TextField 
+        label="Add your todo"
         value={userInput}
         onChange={handleChange}
+        style={{marginLeft:70}}
       />
 
-      <Button className="btn" onClick={submitHandler}>
+      <Button type="submit" style={{marginTop:20, marginRight:5}}>
         <AddIcon />
       </Button>
     </form>

@@ -5,7 +5,7 @@ const TodoList = ({ addTodos, deleteTodo, todoComplete }) => {
   console.log("TodoList rendered");
 
   return (
-    <List>
+    <List style={{marginLeft:500, marginRight:500}}>
       {addTodos.map((todo) => {
         return (
           <TodoItem

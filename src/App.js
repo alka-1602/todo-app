@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import AppBar from "@material-ui/core/AppBar";
+import Typography from "@material-ui/core/Typography";
 
 import "./styles.css";
 
@@ -43,18 +44,34 @@ const App = () => {
   }, [todos]);
 
   return (
-    <div className="main-div">
-      <div className="child-div">
-        <AppBar className="header"> Todo App </AppBar>
-        <h1> List of todos </h1>
+    <>
+      <AppBar
+        position="sticky"
+        style={{ padding: 30, textAlign: "center", fontSize: 30 }}
+      >
+        {" "}
+        Todo App{" "}
+      </AppBar>
+      <div className="main-div">
+        {/* <div className="child-div"> */}
+        <Typography
+          variant="h4"
+          gutterBottom
+          style={{ marginTop: 20, marginBottom: 20 }}
+        >
+          List of todos
+        </Typography>
+
         <TodoForm addTodos={todos} setAddTodos={setTodos} />
+
         <TodoList
           addTodos={todos}
           deleteTodo={deleteItem}
           todoComplete={todoComplete}
         />
       </div>
-    </div>
+      {/* </div> */}
+    </>
   );
 };
 
