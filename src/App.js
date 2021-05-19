@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
-//import AppBar from "@material-ui/core/AppBar";
+import AppBar from "@material-ui/core/AppBar";
 
 import "./styles.css";
 
@@ -43,19 +43,18 @@ const App = () => {
   }, [todos]);
 
   return (
-    <>
-      <div className="main-div">
-        <div className="child-div">
-          <h1> Todo App </h1>
-          <TodoForm addTodos={todos} setAddTodos={setTodos} />
-          <TodoList
-            addTodos={todos}
-            deleteTodo={deleteItem}
-            todoComplete={todoComplete}
-          />
-        </div>
+    <div className="main-div">
+      <div className="child-div">
+        <AppBar className="header"> Todo App </AppBar>
+        <h1> List of todos </h1>
+        <TodoForm addTodos={todos} setAddTodos={setTodos} />
+        <TodoList
+          addTodos={todos}
+          deleteTodo={deleteItem}
+          todoComplete={todoComplete}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

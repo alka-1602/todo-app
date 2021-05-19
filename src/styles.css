@@ -12,7 +12,7 @@
 .child-div {
   background-color: white;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 8rem;
   margin-bottom: 50px;
   width: 350px;
 }
@@ -48,4 +48,8 @@ input[type="checkbox"]:checked + label.strikethrough {
   font-size: 50%;
   background-color: rgb(227, 218, 201);
   border-width: 50%;
+}
+
+.header{
+  margin-bottom: 40rem;
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import List from "@material-ui/core/List";
 const TodoList = ({ addTodos, deleteTodo, todoComplete }) => {
   console.log("TodoList rendered");
 
   return (
-    <ul>
+    <List>
       {addTodos.map((todo) => {
         return (
           <TodoItem
@@ -16,7 +17,7 @@ const TodoList = ({ addTodos, deleteTodo, todoComplete }) => {
           />
         );
       })}
-    </ul>
+    </List>
   );
 };
 export default TodoList;
