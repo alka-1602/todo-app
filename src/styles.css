@@ -2,14 +2,14 @@
   font-family: sans-serif;
   text-align: center;
 }
-.main-div {
+/* .main-div {
   min-height: 100vh;
   background-color: #fcf6f6;
   
   /* display: flex; */
-  justify-content: center;
+  /* justify-content: center;
   text-align: center;
-}
+} */ 
 
 /* .child-div {
   background-color: white;

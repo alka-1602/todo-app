@@ -3,6 +3,7 @@ import TodoForm from "./AddTodoForm";
 import TodoList from "./TodoList";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
 import "./styles.css";
 
@@ -45,19 +46,29 @@ const App = () => {
 
   return (
     <>
-      <AppBar
-        position="sticky"
-        style={{ padding: 30, textAlign: "center", fontSize: 30 }}
+      <Grid
+        item
+        xs={12}
+        container
+        spacing={3}
+        direction="column"
+        justify="center"
+        alignItems="center"
       >
-        {" "}
-        Todo App{" "}
-      </AppBar>
-      <div className="main-div">
+        <AppBar
+          position="sticky"
+          style={{ padding: 30, textAlign: "center", fontSize: 30 }}
+        >
+          {" "}
+          Todo App{" "}
+        </AppBar>
+        {/* <div className="main-div"> */}
         {/* <div className="child-div"> */}
+
         <Typography
           variant="h4"
           gutterBottom
-          style={{ marginTop: 20, marginBottom: 20 }}
+          style={{ marginTop: 30, marginBottom: 30 }}
         >
           List of todos
         </Typography>
@@ -69,7 +80,8 @@ const App = () => {
           deleteTodo={deleteItem}
           todoComplete={todoComplete}
         />
-      </div>
+      </Grid>
+      {/* </div> */}
       {/* </div> */}
     </>
   );
