@@ -10,7 +10,8 @@ const useItemStyles = makeStyles(
   () => ({
     item: {
       backgroundColor: "lightGreen",
-      padding: "20",
+      padding: 10,
+      marginBottom: 10,
     },
   }),
   {

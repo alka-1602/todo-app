@@ -31,7 +31,7 @@ const useAppStyles = makeStyles(
       alignItems: "center",
     },
     itemLargeSize: {
-      fontSize: "4rem",
+      fontSize: 4,
     },
   }),
   {
