@@ -7,9 +7,16 @@
   background-color: #fcf6f6;
   
   /* display: flex; */
-  /* justify-content: center;
+/* justify-content: center;
   text-align: center;
-} */ 
+} */
+
+.custom-appbar {
+  padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  position: sticky;
+}
 
 /* .child-div {
   background-color: white;
@@ -50,4 +57,12 @@ button {
   font-size: 50%;
   background-color: rgb(227, 218, 201);
   border-width: 50%;
+} */
+
+/* .custom-appbar {
+  color: red;
+  background-color: lightcyan;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 } */

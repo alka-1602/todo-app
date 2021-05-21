@@ -4,13 +4,40 @@ import TodoList from "./TodoList";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
 import "./styles.css";
+import clsx from "clsx";
 
 // Component Boundaries & responsibilities
 // Colocating state (to avoid unnecessary re-renders)
 // naming of props as per outputs and inputs
 // avoid unnecessary DOM
+
+const useAppStyles = makeStyles(
+  () => ({
+    appBar: {
+      padding: 30,
+      textAlign: "center",
+      fontSize: 30,
+      position: "sticky",
+    },
+    item: {
+      textAlign: "center",
+      marginTop: "10",
+      marginBotton: "8",
+
+      justify: "center",
+      alignItems: "center",
+    },
+    itemLargeSize: {
+      fontSize: "4rem",
+    },
+  }),
+  {
+    name: "App",
+  }
+);
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -44,45 +71,37 @@ const App = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  const classes = useAppStyles();
+
   return (
     <>
-      <Grid
-        item
-        xs={12}
-        container
-        spacing={3}
-        direction="column"
-        justify="center"
-        alignItems="center"
-      >
-        <AppBar
-          position="sticky"
-          style={{ padding: 30, textAlign: "center", fontSize: 30 }}
-        >
-          {" "}
-          Todo App{" "}
-        </AppBar>
-        {/* <div className="main-div"> */}
-        {/* <div className="child-div"> */}
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <AppBar className={classes.appBar}> Todo App </AppBar>
+        </Grid>
 
-        <Typography
-          variant="h4"
-          gutterBottom
-          style={{ marginTop: 30, marginBottom: 30 }}
-        >
-          List of todos
-        </Typography>
-
-        <TodoForm addTodos={todos} setAddTodos={setTodos} />
-
-        <TodoList
-          addTodos={todos}
-          deleteTodo={deleteItem}
-          todoComplete={todoComplete}
-        />
+        <Grid item xs={12}>
+          <Paper className={clsx(classes.itemLargeSize, classes.item)}>
+            <Typography variant="h4" gutterBottom>
+              List of todos
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.item}>
+            <TodoForm addTodos={todos} setAddTodos={setTodos} />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper className={classes.item}>
+            <TodoList
+              addTodos={todos}
+              deleteTodo={deleteItem}
+              todoComplete={todoComplete}
+            />
+          </Paper>
+        </Grid>
       </Grid>
-      {/* </div> */}
-      {/* </div> */}
     </>
   );
 };

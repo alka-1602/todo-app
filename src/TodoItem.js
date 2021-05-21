@@ -4,6 +4,19 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import ListItem from "@material-ui/core/ListItem";
 import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useItemStyles = makeStyles(
+  () => ({
+    item: {
+      backgroundColor: "lightGreen",
+      padding: "20",
+    },
+  }),
+  {
+    name: "List",
+  }
+);
 
 const TodoItem = ({ text, deleteTodo, todo, todoComplete }) => {
   console.log("TodoItem rendered");
@@ -17,26 +30,26 @@ const TodoItem = ({ text, deleteTodo, todo, todoComplete }) => {
     todoComplete(todo.id);
   }
 
-  return (
-    <form>
-      <ListItem style={{backgroundColor:"lightcyan", borderRadius:30, marginBottom:15, marginTop:15}}>
-        <Checkbox
-          size="small"
-          onClick={handleCheckbox}
-          color="primary"
-          inputProps={{ "aria-label": "primary checkbox" }}
-          checked={todo.isComplete}
-        />
-        <ListItemText
-          primary={todo.text}
-          style={{ textDecoration: todo.isComplete ? "line-through" : null }}
-        />
+  const classes = useItemStyles();
 
-        <Button color="secondary" onClick={deleteHandler}>
-          <DeleteOutlineIcon />
-        </Button>
-      </ListItem>
-    </form>
+  return (
+    <ListItem className={classes.item}>
+      <Checkbox
+        size="small"
+        onClick={handleCheckbox}
+        color="primary"
+        inputProps={{ "aria-label": "primary checkbox" }}
+        checked={todo.isComplete}
+      />
+      <ListItemText
+        primary={todo.text}
+        style={{ textDecoration: todo.isComplete ? "line-through" : null }}
+      />
+
+      <Button color="secondary" onClick={deleteHandler}>
+        <DeleteOutlineIcon />
+      </Button>
+    </ListItem>
   );
 };
 export default TodoItem;
